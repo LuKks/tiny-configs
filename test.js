@@ -2,6 +2,9 @@ const test = require('brittle')
 const configs = require('./index.js')
 
 test('basic', function (t) {
+  t.alike(configs.parse('name1'), ['name1'])
+  t.alike(configs.parse('name1\nname2'), ['name1', 'name2'])
+
   const file = '# <name> <public key>\nname1 key1\nname2 key2 # comment\nname3\n\n'
   t.alike(configs.parse(file, { split: ' ', length: 2 }), [['name1', 'key1'], ['name2', 'key2']])
 })
