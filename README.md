@@ -52,8 +52,8 @@ const config = configs.parse(file, { split: ' ', length: 2 })
 Available options:
 ```js
 {
-	split: null,
-	length: 0
+  split: null,
+  length: 0
 }
 ```
 
