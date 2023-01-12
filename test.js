@@ -39,3 +39,8 @@ test('empty file', function (t) {
   t.alike(configs.parse('\n'), [])
   t.alike(configs.parse('#'), [])
 })
+
+test('parse buffers', function (t) {
+  const file = Buffer.from('name1\nname2')
+  t.alike(configs.parse(file), ['name1', 'name2'])
+})
