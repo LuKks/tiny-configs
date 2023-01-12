@@ -35,9 +35,11 @@ test('no lines', function (t) {
 })
 
 test('empty file', function (t) {
+  t.alike(configs.parse(), [])
   t.alike(configs.parse(''), [])
   t.alike(configs.parse('\n'), [])
   t.alike(configs.parse('#'), [])
+  t.alike(configs.parse(null), [])
 })
 
 test('parse buffers', function (t) {
