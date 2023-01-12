@@ -22,6 +22,14 @@ test('length', function (t) {
   t.alike(configs.parse(file2, { split: ':', length: 2 }), [])
 })
 
+test('length but empty value', function (t) {
+  const file1 = 'name1:'
+  t.alike(configs.parse(file1, { split: ':', length: 2 }), [])
+
+  const file2 = 'name1:'
+  t.alike(configs.parse(file2, { split: ':', length: 2, allowEmpty: true }), [['name1', '']])
+})
+
 test('trim', function (t) {
   const file1 = '  name1  \n  name2  \n\tname3\t'
   t.alike(configs.parse(file1), ['name1', 'name2', 'name3'])

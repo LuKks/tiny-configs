@@ -14,6 +14,8 @@ module.exports = {
         const splitted = line.split(opts.split)
         if (opts.length && opts.length !== splitted.length) return null
 
+        if (!opts.allowEmpty && splitted.some(v => !v)) return null
+
         return splitted
       })
       .filter(m => m)

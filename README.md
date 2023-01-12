@@ -33,12 +33,14 @@ name2
 name3 value3
 ```
 
+`split` the line values by spaces:
+
 ```javascript
 const config = configs.parse(file, { split: ' ' })
 // => [['name1', 'value1'], ['name2'], ['name3', 'value3']]
 ```
 
-Length option filters out lines that don't reach the total amount of values:
+`length` option filters out lines that don't reach the total amount of values:
 
 ```javascript
 const config = configs.parse(file, { split: ' ', length: 2 })
@@ -53,7 +55,8 @@ Available options:
 ```js
 {
   split: null,
-  length: 0
+  length: 0,
+  allowEmpty: false
 }
 ```
 
